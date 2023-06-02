@@ -20,7 +20,7 @@ class Credentials extends Equatable {
   bool? get stringify => shouldStringify;
 }
 
-abstract class EquatableBase with EquatableMixin {}
+abstract class EquatableBase with Equatable {}
 
 class CredentialsMixin extends EquatableBase {
   CredentialsMixin({

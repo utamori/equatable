@@ -18,7 +18,7 @@ import './equatable_utils.dart';
 /// ```
 /// {@endtemplate}
 @immutable
-abstract class Equatable {
+abstract mixin class Equatable {
   /// {@macro equatable}
   const Equatable();
 

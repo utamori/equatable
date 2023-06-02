@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 class NonEquatable {}
 
-abstract class EquatableBase with EquatableMixin {}
+abstract class EquatableBase with Equatable {}
 
 class EmptyEquatable extends EquatableBase {
   @override
@@ -109,7 +109,7 @@ class ExplicitStringifyFalse extends ComplexEquatable {
   bool get stringify => false;
 }
 
-class IterableWithFlag<T> extends Iterable<T> with EquatableMixin {
+class IterableWithFlag<T> extends Iterable<T> with Equatable {
   IterableWithFlag({required this.list, required this.flag});
 
   final bool flag;

@@ -13,7 +13,7 @@ class Credentials extends Equatable {
   bool get stringify => false;
 }
 
-class EquatableDateTime extends DateTime with EquatableMixin {
+class EquatableDateTime extends DateTime with Equatable {
   EquatableDateTime(
     int year, [
     int month = 1,

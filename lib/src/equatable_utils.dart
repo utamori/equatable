@@ -32,7 +32,7 @@ bool equals(List? list1, List? list2) {
 }
 
 bool _isEquatable(dynamic object) {
-  return object is Equatable || object is EquatableMixin;
+  return object is Equatable;
 }
 
 /// Jenkins Hash Functions
