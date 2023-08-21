@@ -26,6 +26,8 @@ abstract class Equatable {
   /// The list of properties that will be used to determine whether
   /// two instances are equal.
   /// {@endtemplate}
+  @mustBeOverridden
+  @mustCallSuper
   List<Object?> get props;
 
   /// {@template equatable_stringify}
