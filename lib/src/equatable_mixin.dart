@@ -12,6 +12,8 @@ import 'equatable_utils.dart';
 @immutable
 mixin EquatableMixin {
   /// {@macro equatable_props}
+  @mustBeOverridden
+  @mustCallSuper
   List<Object?> get props;
 
   /// {@macro equatable_stringify}
