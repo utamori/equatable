@@ -7,6 +7,7 @@ import 'package:test/test.dart';
 
 class NonEquatable {}
 
+// ignore: missing_override_of_must_be_overridden
 abstract class EquatableBase with EquatableMixin {}
 
 class EmptyEquatable extends EquatableBase {
@@ -96,6 +97,9 @@ class ComplexStringify extends ComplexEquatable {
 
   @override
   bool get stringify => true;
+
+  @override
+  List<Object?> get props => super.props;
 }
 
 class ExplicitStringifyFalse extends ComplexEquatable {
@@ -103,7 +107,7 @@ class ExplicitStringifyFalse extends ComplexEquatable {
       : super(name: name, age: age, hairColor: hairColor);
 
   @override
-  List<Object?> get props => [name, age, hairColor];
+  List<Object?> get props => super.props;
 
   @override
   bool get stringify => false;

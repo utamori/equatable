@@ -60,6 +60,20 @@ class ComplexEquatable extends Equatable {
   List<Object?> get props => [name, age, hairColor, children];
 }
 
+class ComplexExtEquatable extends ComplexEquatable {
+  const ComplexExtEquatable(
+      {String? name,
+      int? age,
+      Color? hairColor,
+      List<String>? children,
+      this.height})
+      : super(name: name, age: age, hairColor: hairColor, children: children);
+  final int? height;
+
+  @override
+  List<Object?> get props => [...super.props, height];
+}
+
 class EquatableData extends Equatable {
   const EquatableData({required this.key, required this.value});
 
@@ -691,6 +705,62 @@ void main() {
         children: ['Bob'],
       );
       expect(instanceA == instanceB, false);
+    });
+  });
+
+  group('ComplexExtEquatable', () {
+    test('should return false when values only differ in super property', () {
+      final instanceA = ComplexExtEquatable(
+        name: 'Joe',
+        age: 40,
+        hairColor: Color.black,
+        children: ['Bob'],
+        height: 23,
+      );
+      final instanceB = ComplexExtEquatable(
+        name: 'Joe',
+        age: 41,
+        hairColor: Color.black,
+        children: ['Bob'],
+        height: 23,
+      );
+
+      expect(instanceA == instanceB, false);
+    });
+    test('should return false when values only differ in extended property',
+        () {
+      final instanceA = ComplexExtEquatable(
+        name: 'Joe',
+        age: 41,
+        hairColor: Color.black,
+        children: ['Bob'],
+        height: 23,
+      );
+      final instanceB = ComplexExtEquatable(
+        name: 'Joe',
+        age: 41,
+        hairColor: Color.black,
+        children: ['Bob'],
+        height: 24,
+      );
+
+      expect(instanceA == instanceB, false);
+    });
+
+    test('should return true when values are exactly equal', () {
+      final instanceA = ComplexEquatable(
+        name: 'Joe',
+        age: 40,
+        hairColor: Color.black,
+        children: ['Bob'],
+      );
+      final instanceB = ComplexEquatable(
+        name: 'Joe',
+        age: 40,
+        hairColor: Color.black,
+        children: ['Bob'],
+      );
+      expect(instanceA == instanceB, true);
     });
   });
 

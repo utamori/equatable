@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:test/test.dart';
 
 class Credentials extends Equatable {
-  const Credentials({
+  Credentials({
     required this.username,
     required this.password,
     this.shouldStringify,
@@ -20,6 +20,7 @@ class Credentials extends Equatable {
   bool? get stringify => shouldStringify;
 }
 
+// ignore: missing_override_of_must_be_overridden
 abstract class EquatableBase with EquatableMixin {}
 
 class CredentialsMixin extends EquatableBase {
